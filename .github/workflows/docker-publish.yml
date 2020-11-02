@@ -15,7 +15,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASS: ${{secrets.DOCKER_PASS}} 
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
 
       - name: docker build indexer
         run: |
           docker build . -t indexing
+          
+      - name: docker pus
+        run:
+          docker push atomholo/indexing:1.0
+          
