@@ -10,12 +10,12 @@ env:
   IMAGE_NAME: image
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run tests
+      - name: docker build indexer
         run: |
           docker build . -t indexing
