@@ -18,11 +18,11 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-      - name: docker build indexer
+      - name: docker build indexing
         run: |
-          docker build . -t indexing
+          docker build . -t atomholo/indexing:1.0
           
-      - name: docker pus
+      - name: docker push
         run:
           docker push atomholo/indexing:1.0
           
